@@ -68,8 +68,8 @@ public class Director extends Person {
     }
 
     //assigner eun élève
-    public void assignStudentToTeacher(Student student, Teacher teacher) {
-        teacher.getStudents().add(student);
+    public void assignStudentToCourse(Student student, Course course) {
+        course.addStudent(student);
     }
 
     @Override
