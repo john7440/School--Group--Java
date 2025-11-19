@@ -76,6 +76,13 @@ public class Course {
 	public void addStudent(Student student) {
 		this.students.add(student);
 	}
+
+	@Override
+	public String toString() {
+		return "Course [name=" + name + ", classroom=" + classroom + ", teacher=" + teacher + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", students=" + students.toString() + "]";
+	}
+	
 	
 	
 }
