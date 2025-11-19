@@ -2,13 +2,14 @@ package fr.fms.school;
 
 import java.util.ArrayList;
 
-public class Student {
+public class Student extends Person {
     private int id;
     private ArrayList<Course> courses;
 
-    public Student(int id) {
+    public Student(String firstName, String lastName, int age, Address address, int id, ArrayList<Course> courses) {
+        super(firstName, lastName, age, address);
         this.id = id;
-        this.courses = new ArrayList<>();
+        this.courses = courses;
     }
 
     public int getId() {
@@ -19,10 +20,19 @@ public class Student {
         this.id = id;
     }
 
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
+                ", courses=" + courses +
                 '}';
     }
 }
