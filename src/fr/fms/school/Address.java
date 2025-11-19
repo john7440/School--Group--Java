@@ -1,14 +1,19 @@
 package fr.fms.school;
 
-public class Adress {
+public class Address {
     private String street;
     private String city;
     private int zipCode;
 
-    public Adress(String street, String city, int zipCode) {
+    public Address(String street, String city, int zipCode) {
         this.street = street;
         this.city = city;
         this.zipCode = zipCode;
+    }
+
+    public boolean isFormatCodeValid() {
+        String zip = String.valueOf(zipCode);
+        return zip.matches("\\d{5}");
     }
 
     public String getStreet() {
