@@ -1,13 +1,19 @@
 package fr.fms.school;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Teacher extends Person {
-    LocalDate arrivalDate;
+    private LocalDate arrivalDate;
+    private List<Course> courses;
+    private List<Student> students;
 
     public Teacher(String firstName, String lastName, int age, Address address, LocalDate arrivalDate) {
         super(firstName, lastName, age, address);
         this.arrivalDate = arrivalDate;
+        this.courses = new ArrayList<>();
+        this.students = new ArrayList<>();
     }
 
     public LocalDate getArrivalDate() {
@@ -18,10 +24,21 @@ public class Teacher extends Person {
         this.arrivalDate = arrivalDate;
     }
 
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
-                "arrivalDate=" + arrivalDate +
+                "name=" + getFirstName() + " " + getLastName() +
+                ", arrivalDate=" + arrivalDate +
+                ", courses=" + courses +
+                ", students=" + students +
                 '}';
     }
 }
