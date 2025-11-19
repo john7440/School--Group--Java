@@ -1,7 +1,10 @@
 package fr.fms.school;
 
+import java.util.ArrayList;
+
 public class Student {
     private int id;
+    private ArrayList<Course> courses;
 
     public Student(int id) {
         this.id = id;
