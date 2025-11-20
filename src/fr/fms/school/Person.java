@@ -12,6 +12,7 @@ public abstract class Person {
         setLastName(lastName);
         setAge(age);
         this.address = address;
+        this.address.getInhabitants().add(this);
     }
 
     public Person(String firstName, String lastName, int age) {

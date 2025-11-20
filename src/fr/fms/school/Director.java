@@ -34,6 +34,13 @@ public class Director extends Person {
         return courses;
     }
 
+    public void displayCourses(){
+        for (Course course : courses) {
+            System.out.println(course);
+        }
+    }
+
+
     // pour les élèves
     public void validateStudentRegistration(Student student) {
         if (!students.contains(student)) {

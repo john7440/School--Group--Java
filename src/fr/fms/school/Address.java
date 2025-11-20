@@ -1,14 +1,19 @@
 package fr.fms.school;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Address {
     private String street;
     private String city;
-    private int zipCode;
+    private String zipCode;
+    private List<Person> inhabitants;
 
-    public Address(String street, String city, int zipCode) {
+    public Address(String street, String city, String zipCode) {
         this.street = street;
         this.city = city;
         this.zipCode = zipCode;
+        this.inhabitants = new ArrayList<>();
     }
 
     public boolean isFormatCodeValid() {
@@ -32,12 +37,20 @@ public class Address {
         this.city = city;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<Person> getInhabitants() {
+        return inhabitants;
+    }
+
+    public void setInhabitants(List<Person> inhabitants) {
+        this.inhabitants = inhabitants;
     }
 
     @Override
