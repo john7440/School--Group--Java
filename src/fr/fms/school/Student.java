@@ -1,15 +1,17 @@
 package fr.fms.school;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student extends Person {
+    private static int nextid = 1;
     private int id;
-    private ArrayList<Course> courses;
 
-    public Student(String firstName, String lastName, int age, Address address, int id, ArrayList<Course> courses) {
+
+    public Student(String firstName, String lastName, int age, Address address) {
         super(firstName, lastName, age, address);
-        this.id = id;
-        this.courses = courses;
+        this.id = nextid;
+        nextid++;
     }
 
     public int getId() {
@@ -20,19 +22,17 @@ public class Student extends Person {
         this.id = id;
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
+    //apply to a school, send my profile to the director
+    public void applyToSchool(){
+        Director.getWaitingToBeSubscribedStudents().add(this);
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
-    }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", courses=" + courses +
+        return "\nStudent{" +
+                ", id=" + id +
+                super.toString() +
                 '}';
     }
 }

@@ -81,7 +81,7 @@ public abstract class Person {
     // les Methods
 
     public String toString() {
-        String result = "Prénom: " + getFirstName() + "\n" +
+        String result = "\nPrénom: " + getFirstName() + "\n" +
                 "Nom: " + getLastName() + "\n" +
                 "Age: " + getAge() + "\n" +
                 "Adresse: " + getAddress() + "\n";

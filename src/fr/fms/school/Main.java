@@ -106,6 +106,23 @@ public class Main {
         yassine.applyToSchool();
         claire.applyToSchool();
         hugo.applyToSchool();
+        ines.applyToSchool();
+        paul.applyToSchool();
+        sara.applyToSchool();
+        nathan.applyToSchool();
+        emma.applyToSchool();
+        lucas.applyToSchool();
+        lea.applyToSchool();
+        sofiane.applyToSchool();
+        manon.applyToSchool();
+        thomas.applyToSchool();
+        ana.applyToSchool();
+        maxime.applyToSchool();
+        sophia.applyToSchool();
+        thomas.applyToSchool();
+        ana.applyToSchool();
+        maxime.applyToSchool();
+        sophia.applyToSchool();
 
         martial.acceptAllStudents();
 
