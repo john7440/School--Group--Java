@@ -7,12 +7,14 @@ public class Director extends Person {
     private List<Course> courses;
     private List<Teacher> teachers;
     private List<Student> students;
+    private List<Address> addresses;
 
     public Director(String firstName, String lastName, int age, Address address) {
         super(firstName, lastName, age, address);
         this.courses = new ArrayList<>();
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
+        this.addresses = new ArrayList<>();
     }
     /// Pour la gestion des cours
     //ajouter
@@ -75,8 +77,6 @@ public class Director extends Person {
     @Override
     public String toString() {
         return "Director{" +
-                "name=" + getFirstName() + " " + getLastName() +
-                ", courses=" + courses +
-                '}';
+                "name=" + getFirstName() + " " + getLastName();
     }
 }
