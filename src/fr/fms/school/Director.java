@@ -9,6 +9,10 @@ public class Director extends Person {
     private List<Student> students;
     private List<Address> addresses;
 
+    //static
+    public static List<Student> waitingToBeSubscribedStudents = new ArrayList<>();
+
+
     public Director(String firstName, String lastName, int age, Address address) {
         super(firstName, lastName, age, address);
         this.courses = new ArrayList<>();
@@ -45,6 +49,22 @@ public class Director extends Person {
         return students;
     }
 
+    public static List<Student> getWaitingToBeSubscribedStudents() {
+        return waitingToBeSubscribedStudents;
+    }
+
+    public static void setWaitingToBeSubscribedStudents(List<Student> waitingToBeSubscribedStudents) {
+        Director.waitingToBeSubscribedStudents = waitingToBeSubscribedStudents;
+    }
+
+    public void acceptAllStudents(){
+        for(Student s : waitingToBeSubscribedStudents){
+            this.students.add(s);
+        }
+        System.out.println("==========================" + students);
+        waitingToBeSubscribedStudents.clear();
+    }
+
     // gestion des profs
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
@@ -74,9 +94,17 @@ public class Director extends Person {
         course.addStudent(student);
     }
 
+    public void displayStudents(){
+        for(Student s : students) {
+            System.out.println(s);
+        }
+    }
+
     @Override
     public String toString() {
         return "Director{" +
-                "name=" + getFirstName() + " " + getLastName();
+                "name=" + getFirstName() + " " + getLastName() + "}";
     }
+
+
 }
