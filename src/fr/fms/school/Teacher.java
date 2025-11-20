@@ -23,6 +23,10 @@ public class Teacher extends Person {
     public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
+    public void addCourse(Course course) {
+        course.setTeacher(this);
+        courses.add(course);
+    }
 
     public List<Course> getCourses() {
         return courses;
@@ -30,6 +34,18 @@ public class Teacher extends Person {
 
     public List<Student> getStudents() {
         return students;
+    }
+
+    public void displayCourses() {
+        for (Course course : courses) {
+            System.out.println(course);
+        }
+    }
+
+    public void displayStudent() {
+        for (Student student : students) {
+            System.out.println(student);
+        }
     }
 
     @Override

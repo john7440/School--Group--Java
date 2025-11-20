@@ -30,6 +30,15 @@ public class Course {
 		this.endDate = endDate;
 		this.students = new ArrayList<Student>();
 	}
+
+    public Course(String name, String classroom, LocalDate startDate, LocalDate endDate) {
+        this.name = name;
+        this.classroom = classroom;
+        this.teacher = null;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.students = new ArrayList<Student>();
+    }
 	
 	
 	public String getName() {
@@ -79,7 +88,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [name=" + name + ", classroom=" + classroom + ", teacher=" + teacher + ", startDate=" + startDate
+		return "Course [name=" + name + ", classroom=" + classroom  + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", students=" + students.toString() + "]";
 	}
 	

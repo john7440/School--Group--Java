@@ -93,7 +93,8 @@ public class Director extends Person {
 
     // affecter un prof
     public void assignCourseToTeacher(Course course, Teacher teacher) {
-        teacher.getCourses().add(course);
+        //teacher.getCourses().add(course);
+        teacher.addCourse(course);
     }
 
     //assigner eun élève

@@ -1,5 +1,7 @@
 package fr.fms.school;
 
+import jdk.jshell.execution.JdiDefaultExecutionControl;
+
 import java.time.LocalDate;
 
 public class Main {
@@ -95,14 +97,16 @@ public class Main {
 
         // Cours
 
-        Course uml = new Course("Uml", "Cap", mor, LocalDate.of(2025,11,17),LocalDate.of(2025,11,21));
-        Course bdd = new Course("BDD", "Mezza1", fatou, LocalDate.of(2025,11,24),LocalDate.of(2025,11,28));
+        Course uml = new Course("Uml", "Cap", LocalDate.of(2025,11,17),LocalDate.of(2025,11,21));
+        Course bdd = new Course("BDD", "Mezza1", LocalDate.of(2025,11,24),LocalDate.of(2025,11,28));
 
         martial.addTeacher(mor);
         martial.addTeacher(jean);
         martial.addTeacher(fatou);
         martial.addTeacher(sophie);
         martial.addTeacher(ali);
+
+        martial.assignCourseToTeacher(uml, mor);
 
         theo.applyToSchool();
         lina.applyToSchool();
@@ -157,6 +161,8 @@ public class Main {
         System.out.println("-------DisplayAdresses-------");
         System.out.println(theoHome.getInhabitants());
 
+        //
+        mor.displayCourses();
 
     }
 
