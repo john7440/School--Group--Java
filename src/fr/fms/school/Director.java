@@ -16,7 +16,7 @@ public class Director extends Person {
         this.courses = new ArrayList<>();
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
-        List<Address> addresses = new ArrayList<>();
+        //List<Address> addresses = new ArrayList<>();
     }
     /// ------------->Pour la gestion des cours
     // ajouter un cours
@@ -63,9 +63,7 @@ public class Director extends Person {
     }
 
     public void acceptAllStudents(){
-        for(Student s : waitingToBeSubscribedStudents){
-            this.students.add(s);
-        }
+        this.students.addAll(waitingToBeSubscribedStudents);
         System.out.println("==========================" + students);
         waitingToBeSubscribedStudents.clear();
     }
