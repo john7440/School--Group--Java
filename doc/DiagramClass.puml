@@ -35,7 +35,7 @@ class Student extends Person{
 class Teacher extends Person{
     - arrivalDate : Date
     - List<Course>
-    - List<Student>arrivalDate
+    - List<Student>
     + Teacher : Teacher()
 }
 
