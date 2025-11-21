@@ -17,7 +17,7 @@ Deactivate Adresse
 alt Adresse valide
 activate Directeur
     SI -> Directeur : demande d'autorisation
-    Directeur --> SI : autorisé / refusé
+    Directeur --> SI : autoriser un élève ou tous les élèves
     alt Autorisé
         SI -> SI : ajouter élève et adresse
         SI --> Eleve : confirmation d'inscription
@@ -29,6 +29,6 @@ else Adresse invalide
 end
 
 Directeur -> Cours : assignation de l'élève a des cours
-
+activate Cours
 
 @enduml
