@@ -86,6 +86,13 @@ public class Director extends Person {
     public void assignStudentToCourse(Student student, Course course) {
         course.addStudent(student);
     }
+    
+    public void removeStudentFromCourse(Student student, Course course) {
+    	course.getStudents().removeIf(stdntFromList -> stdntFromList.equals(student));
+    	student.getAssignedCourses().removeIf(courseFromList -> courseFromList.equals(course));
+    }
+    
+    public void removeStudent(Student student) {}
 
     //Afficher la liste des élèves
     public void displayStudents(){
