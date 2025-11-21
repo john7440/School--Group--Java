@@ -92,8 +92,8 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [name=" + getName() + ", classroom=" + getClassroom()  + ", startDate=" + getStartDate()
-				+ ", endDate=" + getEndDate() + ", students=" + getStudents().toString() + "]";
+		return "Cours:" + getName() + "\nLieu: " + getClassroom()  + "\nDébut: " + getStartDate()
+				+ "\nFin: " + getEndDate() + "\nListe d'élèves: " + getStudents().toString();
 	}
 
 }
