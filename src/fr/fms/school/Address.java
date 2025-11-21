@@ -3,24 +3,22 @@ package fr.fms.school;
 import java.util.ArrayList;
 import java.util.List;
 
+// La classe Address qui créer les objets address
 public class Address {
     private String street;
     private String city;
     private String zipCode;
     private List<Person> inhabitants;
 
+    // Constructeur
     public Address(String street, String city, String zipCode) {
-        this.street = street;
-        this.city = city;
-        this.zipCode = zipCode;
+        setStreet(street);
+        setCity(city);
+        setZipCode(zipCode);
         this.inhabitants = new ArrayList<>();
     }
 
-    public boolean isFormatCodeValid() {
-        String zip = String.valueOf(zipCode);
-        return zip.matches("\\d{5}");
-    }
-
+    // Les getter et setter
     public String getStreet() {
         return street;
     }
@@ -53,10 +51,18 @@ public class Address {
         this.inhabitants = inhabitants;
     }
 
+    // les méthodes
+    // pour la validation du zipcode
+    public boolean isFormatCodeValid() {
+        String zip = String.valueOf(zipCode);
+        return zip.matches("\\d{5}");
+    }
+
+    // l'affichage de base
     @Override
     public String toString() {
-        return "\nRue: " + street +
-                "\nVille: " + city +
-                "\nzipCode: " + zipCode;
+        return "\nRue: " + getStreet() +
+                "\nVille: " + getCity() +
+                "\nzipCode: " + getZipCode();
     }
 }
