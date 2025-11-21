@@ -30,7 +30,7 @@ public class Student extends Person {
     //Affichage basique de l'élève
     @Override
     public String toString() {
-        return "\nStudent n°"+ id +
+        return "\n===Student n°"+ id + "===" +
                 super.toString() +
                 '\n';
     }
