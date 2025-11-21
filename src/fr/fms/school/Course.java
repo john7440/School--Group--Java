@@ -2,55 +2,56 @@ package fr.fms.school;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.List;
+// La classe Course pour gérer les cours
 public class Course {
 	private String name;
 	private String classroom;
 	private Teacher teacher;
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private ArrayList<Student> students;
-	
-	
-	
-	public Course(String name, String classroom, Teacher teacher, LocalDate startDate, LocalDate endDate, ArrayList<Student> students) {
-		this.name = name;
-		this.classroom = classroom;
-		this.teacher = teacher;
-		this.startDate = startDate;
-		this.endDate = endDate;
+	private List<Student> students;
+
+    // les constructeurs
+	public Course(String name, String classroom, Teacher teacher, LocalDate startDate, LocalDate endDate, List<Student> students) {
+		setName(name);
+		setClassroom(classroom);
+		setTeacher(teacher);
+		setStartDate(startDate);
+		setEndDate(endDate);
 		this.students = students;
 	}
 	
 	public Course(String name, String classroom, Teacher teacher, LocalDate startDate, LocalDate endDate) {
-		this.name = name;
-		this.classroom = classroom;
-		this.teacher = teacher;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.students = new ArrayList<Student>();
+        setName(name);
+        setClassroom(classroom);
+        setTeacher(teacher);
+        setStartDate(startDate);
+        setEndDate(endDate);
+		this.students = new ArrayList<>();
 	}
 
     public Course(String name, String classroom, LocalDate startDate, LocalDate endDate) {
-        this.name = name;
-        this.classroom = classroom;
-        this.teacher = null;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.students = new ArrayList<Student>();
+        setName(name);
+        setClassroom(classroom);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        this.students = new ArrayList<>();
     }
-	
-	
+
+    //Les Getter et Setter
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getClassroom() {
 		return classroom;
 	}
+
 	public void setClassroom(String classroom) {
 		this.classroom = classroom;
 	}
@@ -58,6 +59,7 @@ public class Course {
 	public Teacher getTeacher() {
 		return teacher;
 	}
+
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
@@ -76,22 +78,22 @@ public class Course {
 		this.endDate = endDate;
 	}
 	
-	public ArrayList<Student> getStudents() {
+	public List<Student> getStudents() {
 		return students;
 	}
-	public void setStudents(ArrayList<Student> students) {
+	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+
+    // Les méthodes
 	public void addStudent(Student student) {
-		this.students.add(student);
+        this.students.add(student);
 	}
 
 	@Override
 	public String toString() {
-		return "Course [name=" + name + ", classroom=" + classroom  + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", students=" + students.toString() + "]";
+		return "Course [name=" + getName() + ", classroom=" + getClassroom()  + ", startDate=" + getStartDate()
+				+ ", endDate=" + getEndDate() + ", students=" + getStudents().toString() + "]";
 	}
-	
-	
-	
+
 }
