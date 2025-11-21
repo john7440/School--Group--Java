@@ -10,8 +10,9 @@
     - mettre à jour les informations d’un élève : nom, prénom, âge, adresse, etc. 
 - supprimer un élève :
     - supprimer un élève de la liste 
-- valider l'inscription d'un élève :
-    - transformer un candidat en élève inscrit.
+- valider l'inscription d'un élève
+- valider l'inscription de tous les élèves
+    
 
 #### Gestion des enseignants
 
