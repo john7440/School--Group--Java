@@ -66,6 +66,6 @@ public class Address {
     public String toString() {
         return "\nRue: " + getStreet() +
                 "\nVille: " + getCity() +
-                "\nzipCode: " + getZipCode();
+                "\nCode Postal: " + getZipCode();
     }
 }
