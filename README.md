@@ -13,7 +13,7 @@ Elle propose des fonctionnalités adaptées à trois profils : **Directeur**, **
 - 🔍 Consulter le détail d’un élève : identité, âge, adresse  
 - ✏️ Modifier un élève : mettre à jour ses informations (nom, prénom, âge, adresse, etc.)  
 - 🗑️ Supprimer un élève de la liste  
-- ✅ Valider l’inscription d’un élève : transformer un candidat en élève inscrit  
+- ✅ Valider l’inscription d’un élève
 
 ### Gestion des enseignants
 - 📋 Afficher la liste des enseignants : prénom, nom, âge, date d’arrivée, adresse  
