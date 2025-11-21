@@ -52,4 +52,4 @@ Elle propose des fonctionnalités adaptées à trois profils : **Directeur**, **
 
 1. Clonez le projet :  
    ```bash
-   git clone [https://github.com/mon-organisation/gestion-scolaire.git](https://github.com/john7440/School--Group--Java.git)
+   git clone https://github.com/mon-organisation/gestion-scolaire.git
