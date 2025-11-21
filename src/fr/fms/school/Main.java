@@ -76,19 +76,25 @@ public class Main {
                 new Address("19 rue des roses", "Bordeaux", "33000"));
 
 
-        // Cours
-
+        // initiation Cours
         Course uml = new Course("Uml", "Cap", LocalDate.of(2025,11,17),LocalDate.of(2025,11,21));
         Course bdd = new Course("BDD", "Mezza1", LocalDate.of(2025,11,24),LocalDate.of(2025,11,28));
+        Course aquaPoney = new Course("Aqua Poney", "Piscine",  LocalDate.of(2025,12,6),LocalDate.of(2025,12,9));
 
+        // Le directeur ajoute les professeurs
         martial.addTeacher(mor);
         martial.addTeacher(jean);
         martial.addTeacher(fatou);
         martial.addTeacher(sophie);
         martial.addTeacher(ali);
 
+        // Suppression d'ali de la liste des profs
+        martial.removeTeacher(ali);
+
+        // assignation du cours uml a mor
         martial.assignCourseToTeacher(uml, mor);
 
+        // demande d'inscriptions de la part des élèves
         theo.applyToSchool();
         lina.applyToSchool();
         adam.applyToSchool();
@@ -114,11 +120,17 @@ public class Main {
 
         System.out.println(Director.getWaitingToBeSubscribedStudents());
 
+        // affichage de la liste des élèves
         System.out.println("-------DisplayStudents-------");
         martial.displayStudents();
 
-        // cours uml
+        // ajout cours uml
         martial.addCourse(uml);
+
+        // ajout + suppression du cours aquaPoney :(
+        martial.addCourse(aquaPoney);
+        martial.assignCourseToTeacher(aquaPoney, sophie);
+        martial.removeCourse(aquaPoney);
 
         System.out.println("-------DisplayCourseUml-------");
         martial.assignStudentToCourse(theo, uml);
