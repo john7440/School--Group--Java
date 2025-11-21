@@ -1,19 +1,15 @@
 package fr.fms.school;
 
-import jdk.jshell.execution.JdiDefaultExecutionControl;
-
 import java.time.LocalDate;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Director
-
+        // Le Directeur
         Director martial = new Director("Martial", "Bret", 54, new Address("1 rue de la pierre en bois", "Toulouse", "75000" ));
 
-        // Teacher
-
+        // Les Profs
         Teacher mor = new Teacher("Mor", "Diop", 32, new Address("3 avenue du sablar", "Dax", "40000"), LocalDate.of(2025,9,15));
 
         Teacher fatou = new Teacher("Fatou", "Ba", 29,
@@ -21,7 +17,7 @@ public class Main {
                 LocalDate.of(2025, 10, 1));
 
         Teacher jean = new Teacher("Jean", "Martin", 45,
-                new Address("5 place de la mairie", "Paris", "75000"),
+                new Address("5 place de la mairie", "Paris", "75150"),
                 LocalDate.of(2025, 11, 20));
 
         Teacher sophie = new Teacher("Sophie", "Durand", 38,
@@ -32,7 +28,7 @@ public class Main {
                 new Address("20 chemin des écoles", "Marseille", "13000"),
                 LocalDate.of(2026, 1, 10));
 
-        // Students
+        // Les élèves
         Address theoHome =  new Address("29 rue bourgneuf", "Bayonne", "64100");
         Student theo = new Student("Theo", "Sarhane", 14,
                 theoHome);
@@ -71,25 +67,10 @@ public class Main {
                 new Address("9 rue des peupliers", "Lille", "59000"));
 
         Student lucas = new Student("Lucas", "Garcia", 15,
-                new Address("4 avenue des sports", "Bayonne", "64100"));
+                new Address("4 avenue des sports", "Tamalou", "65202"));
 
         Student lea = new Student("Lea", "Bernard", 14,
                 new Address("2 rue des écoles", "Anglet", "64600"));
-
-        Student sofiane = new Student("Sofiane", "Khelifi", 13,
-                new Address("18 rue des pins", "Biarritz", "64200"));
-
-        Student manon = new Student("Manon", "Robert", 15,
-                new Address("22 rue de la gare", "Dax", "40100"));
-
-        Student thomas = new Student("Thomas", "Lemoine", 14,
-                new Address("14 rue des moulins", "Pau", "64000"));
-
-        Student ana = new Student("Ana", "Fernandez", 13,
-                new Address("30 rue des artistes", "Bayonne", "64100"));
-
-        Student maxime = new Student("Maxime", "Chevalier", 15,
-                new Address("25 rue des champs", "Toulouse", "31000"));
 
         Student sophia = new Student("Sophia", "Gonzalez", 14,
                 new Address("19 rue des roses", "Bordeaux", "33000"));
@@ -122,19 +103,14 @@ public class Main {
         emma.applyToSchool();
         lucas.applyToSchool();
         lea.applyToSchool();
-        sofiane.applyToSchool();
-        manon.applyToSchool();
-        thomas.applyToSchool();
-        ana.applyToSchool();
-        maxime.applyToSchool();
         sophia.applyToSchool();
-        thomas.applyToSchool();
-        ana.applyToSchool();
-        maxime.applyToSchool();
         sophia.applyToSchool();
 
+        //Acceptation d'un seul student
+        martial.validateStudentRegistration(sophia);
+
+        //acceptation de tous les students en attente
         martial.acceptAllStudents();
-
 
         System.out.println(Director.getWaitingToBeSubscribedStudents());
 
@@ -153,15 +129,16 @@ public class Main {
         // cours bdd
         martial.addCourse(bdd);
         martial.assignStudentToCourse(lucas, bdd);
-        martial.assignStudentToCourse(ana, bdd);
+        martial.assignStudentToCourse(sara, bdd);
 
         martial.displayCourses();
 
-        // test 2 personnes 1 addresse
+        // test 2 personnes 1 adresse
         System.out.println("-------DisplayAdresses-------");
         System.out.println(theoHome.getInhabitants());
 
-        //
+        // test d'affichage cour d'un prof
+        System.out.println("----Display Mor courses-------");
         mor.displayCourses();
 
     }
