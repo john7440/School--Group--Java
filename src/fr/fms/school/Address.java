@@ -3,14 +3,25 @@ package fr.fms.school;
 import java.util.ArrayList;
 import java.util.List;
 
-// La classe Address qui créer les objets address
+/**
+ * Représente une adresse postale avec ses habitants.
+ * Une adresse est composée d'une rue, d'une ville et d'un code postal.
+ * Elle maintient également une liste des personnes qui y habitent.
+ */
 public class Address {
     private String street;
     private String city;
     private String zipCode;
     private List<Person> inhabitants;
 
-    // ============Constructeur==================
+    /**
+     * Construit une nouvelle adresse avec les informations spécifiées.
+     * Initialise automatiquement une liste vide d'habitants.
+     *
+     * @param street la rue de l'adresse
+     * @param city la ville de l'adresse
+     * @param zipCode le code postal de l'adresse
+     */
     public Address(String street, String city, String zipCode) {
         setStreet(street);
         setCity(city);
@@ -51,17 +62,11 @@ public class Address {
         this.inhabitants = inhabitants;
     }
 
-    // ===========les méthodes=================
-
-    // pour la validation du zipcode
-    // (pas encore utilisé)
-
-    //public boolean isFormatCodeValid() {
-    //    String zip = String.valueOf(zipCode);
-    //    return zip.matches("\\d{5}");
-    //}
-
-    // l'affichage de base
+    /**
+     * Retourne une représentation textuelle de l'adresse.
+     *
+     * @return une chaîne de caractères contenant la rue, la ville et le code postal
+     */
     @Override
     public String toString() {
         return "\nRue: " + getStreet() +
