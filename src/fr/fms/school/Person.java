@@ -1,5 +1,6 @@
 package fr.fms.school;
 
+// la classe Person (qui est abstraite) pour créer l'objet Person (utilisé dans Student, Teacher et Director).
 public abstract class Person {
 
     private String firstName;
@@ -7,7 +8,8 @@ public abstract class Person {
     private int age;
     private Address address;
 
-    public Person(String firstName, String lastName, int age, Address address) {
+    // =======Constructeur ==========
+    protected Person(String firstName, String lastName, int age, Address address) {
         setFirstName(firstName);
         setLastName(lastName);
         setAge(age);
@@ -15,61 +17,29 @@ public abstract class Person {
         this.address.getInhabitants().add(this);
     }
 
-    public Person(String firstName, String lastName, int age) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        setAge(age);
-    }
-
-    // - -Accessors--
-
-    /**
-     * Gets the person's first name
-     */
+    // ==== les getter et setter
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * Sets the person's first name
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * Gets the person's last name
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * Sets the person's last name
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * Gets the person's age
-     */
     public int getAge() {
         return age;
     }
 
-    /**
-     * Sets the person's age
-     * If the age is negative, sets it to -1
-     */
     public void setAge(int age) {
-        if (age < 0) {
-            this.age = -1;
-
-        } else {
-            this.age = age;
-        }
-
+        this.age = age;
     }
     public Address getAddress() {
         return address;
@@ -79,13 +49,12 @@ public abstract class Person {
         this.address = address;
     }
 
-    // les Methods
+    // =========== les Méthodes ==========
 
     public String toString() {
-        String result = "\nPrénom: " + getFirstName() + "\n" +
+        return "\nPrénom: " + getFirstName() + "\n" +
                 "Nom: " + getLastName() + "\n" +
                 "Age: " + getAge() + "\n" +
                 "Adresse: " + getAddress() + "\n";
-        return result;
     }
 }
