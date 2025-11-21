@@ -88,6 +88,7 @@ public class Course {
     // Les méthodes
 	public void addStudent(Student student) {
         this.students.add(student);
+        student.addCourse(this);
 	}
 
 	@Override
