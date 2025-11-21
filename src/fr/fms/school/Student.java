@@ -1,8 +1,5 @@
 package fr.fms.school;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Student extends Person {
     private static int nextid = 1;
     private int id;
