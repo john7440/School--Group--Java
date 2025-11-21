@@ -67,15 +67,6 @@ public class Director extends Person {
         }
     }
 
-    /**
-     * Affiche les détails d'un étudiant dans la console.
-     *
-     * @param student l'étudiant dont les détails doivent être affichés
-     */
-    public void viewStudentDetails(Student student) {
-        System.out.println(student);
-    }
-
     public List<Student> getStudents() {
         return students;
     }

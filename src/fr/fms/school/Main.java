@@ -34,8 +34,6 @@ public class Main {
         martial.validateStudentRegistration(students.get(14)); // Sophia
         martial.acceptAllStudents();
 
-        System.out.println(Director.getWaitingToBeSubscribedStudents());
-
         // Affichage des élèves
         System.out.println("-------DisplayStudents-------");
         martial.displayStudents();
@@ -68,7 +66,6 @@ public class Main {
     }
 
     // ------------------ Méthodes utilitaires ------------------
-
     private static Director createDirector() {
         return new Director("Martial", "Bret", 54,
                 new Address("1 rue de la pierre en bois", "Toulouse", "75000"));
