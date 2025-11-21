@@ -10,15 +10,15 @@ public class Address {
     private String zipCode;
     private List<Person> inhabitants;
 
-    // Constructeur
+    // ============Constructeur==================
     public Address(String street, String city, String zipCode) {
         setStreet(street);
         setCity(city);
         setZipCode(zipCode);
-        this.inhabitants = new ArrayList<>();
+        setInhabitants(new ArrayList<>());
     }
 
-    // Les getter et setter
+    // ============ Les getter et setter==============
     public String getStreet() {
         return street;
     }
@@ -51,12 +51,15 @@ public class Address {
         this.inhabitants = inhabitants;
     }
 
-    // les méthodes
+    // ===========les méthodes=================
+
     // pour la validation du zipcode
-    public boolean isFormatCodeValid() {
-        String zip = String.valueOf(zipCode);
-        return zip.matches("\\d{5}");
-    }
+    // (pas encore utilisé)
+
+    //public boolean isFormatCodeValid() {
+    //    String zip = String.valueOf(zipCode);
+    //    return zip.matches("\\d{5}");
+    //}
 
     // l'affichage de base
     @Override
