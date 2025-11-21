@@ -33,7 +33,7 @@ public class Director extends Person {
     }
     // Afficher les cours
     public void displayCourses(){
-        for (Course course : courses) {
+        for (Course course : getCourses()) {
             System.out.println(course);
         }
     }
@@ -58,10 +58,6 @@ public class Director extends Person {
         return waitingToBeSubscribedStudents;
     }
 
-    public static void setWaitingToBeSubscribedStudents(List<Student> waitingToBeSubscribedStudents) {
-        Director.waitingToBeSubscribedStudents = waitingToBeSubscribedStudents;
-    }
-
     public void acceptAllStudents(){
         this.students.addAll(waitingToBeSubscribedStudents);
         System.out.println("==========================" + students);
@@ -70,13 +66,7 @@ public class Director extends Person {
 
     // ------------>Gestion des profs
     public void addTeacher(Teacher teacher) {
-        teachers.add(teacher);
-    }
-
-    public void updateTeacher(int index, Teacher teacher) {
-        if (index >= 0 && index < teachers.size()) {
-            teachers.set(index, teacher);
-        }
+        getTeachers().add(teacher);
     }
 
     public void removeTeacher(Teacher teacher) {
@@ -99,7 +89,7 @@ public class Director extends Person {
 
     //Afficher la liste des élèves
     public void displayStudents(){
-        for(Student s : students) {
+        for(Student s : getStudents()) {
             System.out.println(s);
         }
     }
