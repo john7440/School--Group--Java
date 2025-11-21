@@ -3,77 +3,92 @@ package fr.fms.school;
 import java.time.LocalDate;
 
 public class Main {
+	static Teacher mor, fatou, jean, sophie, ali;
+	static Address theoHome;
+	static Student theo, lina, adam, julie, yassine, claire, hugo, ines, paul, sara, nathan, emma, lucas, lea, sophia;
+	//================FUNCTION TO INITIALIZE TEACHERS================
+	public static void initializeTeachers() {
+		// Les Profs
+        mor = new Teacher("Mor", "Diop", 32, new Address("3 avenue du sablar", "Dax", "40000"), LocalDate.of(2025,9,15));
 
-    public static void main(String[] args) {
+        fatou = new Teacher("Fatou", "Ba", 29,
+                new Address("12 rue des lilas", "Bordeaux", "33000"),
+                LocalDate.of(2025, 10, 1));
+
+        jean = new Teacher("Jean", "Martin", 45,
+                new Address("5 place de la mairie", "Paris", "75150"),
+                LocalDate.of(2025, 11, 20));
+
+        sophie = new Teacher("Sophie", "Durand", 38,
+                new Address("8 boulevard Victor Hugo", "Lyon", "69000"),
+                LocalDate.of(2025, 12, 5));
+
+        ali = new Teacher("Ali", "Kane", 50,
+                new Address("20 chemin des écoles", "Marseille", "13000"),
+                LocalDate.of(2026, 1, 10));
+	}
+    
+	
+	//================FUNCTION TO INITIALIZE STUDENTS AND THEIR ADDRESSES================
+	public static void initializeStudents() {
+		theoHome =  new Address("29 rue bourgneuf", "Bayonne", "64100");
+        theo = new Student("Theo", "Sarhane", 14,
+                theoHome);
+
+        lina = new Student("Lina", "Dupont", 13,
+                new Address("12 rue Victor Hugo", "Dax", "40100"));
+
+        adam = new Student("Adam", "Nguyen", 15,
+                new Address("5 avenue de la Liberté", "Pau", "64000"));
+
+        julie = new Student("Julie", "Martin", 14,
+                new Address("8 rue des écoles", "Toulouse", "31000"));
+
+        yassine = new Student("Yassine", "Benali", 13,
+                theoHome);
+
+        claire = new Student("Claire", "Durand", 15,
+                new Address("3 place de la mairie", "Paris", "75000"));
+
+        hugo = new Student("Hugo", "Petit", 14,
+                new Address("7 rue des lilas", "Lyon", "69000"));
+
+        ines = new Student("Ines", "Lopez", 13,
+                new Address("15 boulevard des fleurs", "Marseille", "13000"));
+
+        paul = new Student("Paul", "Rousseau", 14,
+                new Address("20 chemin du stade", "Bayonne", "64100"));
+
+        sara = new Student("Sara", "Diallo", 15,
+                new Address("11 rue des jardins", "Montpellier", "34000"));
+
+        nathan = new Student("Nathan", "Moreau", 13,
+                new Address("6 rue du marché", "Nice", "06000"));
+
+        emma = new Student("Emma", "Fabre", 14,
+                new Address("9 rue des peupliers", "Lille", "59000"));
+
+        lucas = new Student("Lucas", "Garcia", 15,
+                new Address("4 avenue des sports", "Tamalou", "65202"));
+
+        lea = new Student("Lea", "Bernard", 14,
+                new Address("2 rue des écoles", "Anglet", "64600"));
+
+        sophia = new Student("Sophia", "Gonzalez", 14,
+                new Address("19 rue des roses", "Bordeaux", "33000"));
+	}
+	
+	
+	public static void main(String[] args) {
 
         // Le Directeur
         Director martial = new Director("Martial", "Bret", 54, new Address("1 rue de la pierre en bois", "Toulouse", "75000" ));
 
-        // Les Profs
-        Teacher mor = new Teacher("Mor", "Diop", 32, new Address("3 avenue du sablar", "Dax", "40000"), LocalDate.of(2025,9,15));
-
-        Teacher fatou = new Teacher("Fatou", "Ba", 29,
-                new Address("12 rue des lilas", "Bordeaux", "33000"),
-                LocalDate.of(2025, 10, 1));
-
-        Teacher jean = new Teacher("Jean", "Martin", 45,
-                new Address("5 place de la mairie", "Paris", "75150"),
-                LocalDate.of(2025, 11, 20));
-
-        Teacher sophie = new Teacher("Sophie", "Durand", 38,
-                new Address("8 boulevard Victor Hugo", "Lyon", "69000"),
-                LocalDate.of(2025, 12, 5));
-
-        Teacher ali = new Teacher("Ali", "Kane", 50,
-                new Address("20 chemin des écoles", "Marseille", "13000"),
-                LocalDate.of(2026, 1, 10));
+        //les profs
+        initializeTeachers();
 
         // Les élèves
-        Address theoHome =  new Address("29 rue bourgneuf", "Bayonne", "64100");
-        Student theo = new Student("Theo", "Sarhane", 14,
-                theoHome);
-
-        Student lina = new Student("Lina", "Dupont", 13,
-                new Address("12 rue Victor Hugo", "Dax", "40100"));
-
-        Student adam = new Student("Adam", "Nguyen", 15,
-                new Address("5 avenue de la Liberté", "Pau", "64000"));
-
-        Student julie = new Student("Julie", "Martin", 14,
-                new Address("8 rue des écoles", "Toulouse", "31000"));
-
-        Student yassine = new Student("Yassine", "Benali", 13,
-                theoHome);
-
-        Student claire = new Student("Claire", "Durand", 15,
-                new Address("3 place de la mairie", "Paris", "75000"));
-
-        Student hugo = new Student("Hugo", "Petit", 14,
-                new Address("7 rue des lilas", "Lyon", "69000"));
-
-        Student ines = new Student("Ines", "Lopez", 13,
-                new Address("15 boulevard des fleurs", "Marseille", "13000"));
-
-        Student paul = new Student("Paul", "Rousseau", 14,
-                new Address("20 chemin du stade", "Bayonne", "64100"));
-
-        Student sara = new Student("Sara", "Diallo", 15,
-                new Address("11 rue des jardins", "Montpellier", "34000"));
-
-        Student nathan = new Student("Nathan", "Moreau", 13,
-                new Address("6 rue du marché", "Nice", "06000"));
-
-        Student emma = new Student("Emma", "Fabre", 14,
-                new Address("9 rue des peupliers", "Lille", "59000"));
-
-        Student lucas = new Student("Lucas", "Garcia", 15,
-                new Address("4 avenue des sports", "Tamalou", "65202"));
-
-        Student lea = new Student("Lea", "Bernard", 14,
-                new Address("2 rue des écoles", "Anglet", "64600"));
-
-        Student sophia = new Student("Sophia", "Gonzalez", 14,
-                new Address("19 rue des roses", "Bordeaux", "33000"));
+        initializeStudents();
 
 
         // initiation Cours
@@ -93,6 +108,7 @@ public class Main {
 
         // assignation du cours uml a mor
         martial.assignCourseToTeacher(uml, mor);
+        martial.assignCourseToTeacher(bdd, sophie);
 
         // demande d'inscriptions de la part des élèves
         theo.applyToSchool();
@@ -134,6 +150,7 @@ public class Main {
 
         System.out.println("-------DisplayCourseUml-------");
         martial.assignStudentToCourse(theo, uml);
+        martial.assignStudentToCourse(theo, bdd);
         martial.assignStudentToCourse(sara, uml);
         martial.assignStudentToCourse(lea, uml);
         martial.assignStudentToCourse(sophia, uml);
@@ -152,6 +169,35 @@ public class Main {
         // test d'affichage cour d'un prof
         System.out.println("----Display Mor courses-------");
         mor.displayCourses();
+        
+        //test pour enlever un eleve d'un cours
+        System.out.println("==========Remove student from course==========");
+        System.out.println("-------BEFORE REMOVAL-------");
+        theo.printCourses();
+        for (Student s : bdd.getStudents()) {
+            System.out.println(s.getFirstName());
+        }
+        
+        System.out.println("-------REMOVAL-------");
+        martial.removeStudentFromCourse(theo, bdd);
+        theo.printCourses();
+        for (Student s : bdd.getStudents()) {
+            System.out.println(s.getFirstName());
+        }
+        
+        //test pour virer un etudiant
+        System.out.println("==========Remove student from school==========");
+        
+        System.out.println("-------BEFORE REMOVAL-------");
+        for (Student s : uml.getStudents()) {
+            System.out.println(s.getFirstName());
+        }
+        
+        System.out.println("-------REMOVAL-------");
+        martial.removeStudent(lea);
+        for (Student s : uml.getStudents()) {
+            System.out.println(s.getFirstName());
+        }
 
     }
 
