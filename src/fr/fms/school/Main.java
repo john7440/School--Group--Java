@@ -6,9 +6,8 @@ public class Main {
 	public static void main(String[] args) {
         // Le Directeur
         Director martial = new Director("Martial", "Bret", 54, new Address("1 rue de la pierre en bois", "Toulouse", "75000" ));
-        
-        
-		//================FUNCTION TO INITIALIZE TEACHERS================
+
+        //------------------------------------------------------------------------------------------
 		// Les Profs
 	    Teacher mor = new Teacher("Mor", "Diop", 32, new Address("3 avenue du sablar", "Dax", "40000"), LocalDate.of(2025,9,15));
 	
@@ -28,9 +27,11 @@ public class Main {
 	            new Address("20 chemin des écoles", "Marseille", "13000"),
 	            LocalDate.of(2026, 1, 10));
 	    
-		
-		//================FUNCTION TO INITIALIZE STUDENTS AND THEIR ADDRESSES================
-	    Address theoHome =  new Address("29 rue bourgneuf", "Bayonne", "64100");
+        // Création d'une adresse pour test multiples personnes sur 1 adresse
+	    Address theoHome =  new Address("29 rue Bourgneuf", "Bayonne", "64100");
+
+        //-----------------------------------------------------------------------------------------------
+        // Initialisation des élèves
 	    Student theo = new Student("Theo", "Sarhane", 14,
 	                theoHome);
 	
@@ -76,12 +77,13 @@ public class Main {
 	    Student sophia = new Student("Sophia", "Gonzalez", 14,
 	                new Address("19 rue des roses", "Bordeaux", "33000"));
 
-
-        // initiation Cours
+        //-----------------------------------------------------------------------------------------------
+        // Initialisation des Cours
         Course uml = new Course("Uml", "Cap", LocalDate.of(2025,11,17),LocalDate.of(2025,11,21));
         Course bdd = new Course("BDD", "Mezza1", LocalDate.of(2025,11,24),LocalDate.of(2025,11,28));
         Course aquaPoney = new Course("Aqua Poney", "Piscine",  LocalDate.of(2025,12,6),LocalDate.of(2025,12,9));
 
+        //-----------------------------------------------------------------------------------------------
         // Le directeur ajoute les professeurs
         martial.addTeacher(mor);
         martial.addTeacher(jean);
@@ -89,13 +91,25 @@ public class Main {
         martial.addTeacher(sophie);
         martial.addTeacher(ali);
 
+        //-----------------------------------------------------------------------------------------------
         // Suppression d'ali de la liste des profs
         martial.removeTeacher(ali);
 
-        // assignation du cours uml a mor
+        //-----------------------------------------------------------------------------------------------
+        // ajout cours uml
+        martial.addCourse(uml);
+
+        // ajout + suppression du cours aquaPoney :(
+        martial.addCourse(aquaPoney);
+        martial.assignCourseToTeacher(aquaPoney, sophie);
+        martial.removeCourse(aquaPoney);
+
+        //-----------------------------------------------------------------------------------------------
+        // assignation du cours uml a mor et bdd a sophie
         martial.assignCourseToTeacher(uml, mor);
         martial.assignCourseToTeacher(bdd, sophie);
 
+        //-----------------------------------------------------------------------------------------------
         // demande d'inscriptions de la part des élèves
         theo.applyToSchool();
         lina.applyToSchool();
@@ -114,7 +128,8 @@ public class Main {
         sophia.applyToSchool();
         sophia.applyToSchool();
 
-        //Acceptation d'un seul student
+        //-----------------------------------------------------------------------------------------------
+        //Acceptation d'un seul élève (sophia)
         martial.validateStudentRegistration(sophia);
 
         //acceptation de tous les students en attente
@@ -122,41 +137,40 @@ public class Main {
 
         System.out.println(Director.getWaitingToBeSubscribedStudents());
 
+        //-----------------------------------------------------------------------------------------------
         // affichage de la liste des élèves
         System.out.println("-------DisplayStudents-------");
         martial.displayStudents();
 
-        // ajout cours uml
-        martial.addCourse(uml);
-
-        // ajout + suppression du cours aquaPoney :(
-        martial.addCourse(aquaPoney);
-        martial.assignCourseToTeacher(aquaPoney, sophie);
-        martial.removeCourse(aquaPoney);
-
+        //-----------------------------------------------------------------------------------------------
+        // assignation d'élèves au cours uml
         System.out.println("-------DisplayCourseUml-------");
         martial.assignStudentToCourse(theo, uml);
-        martial.assignStudentToCourse(theo, bdd);
         martial.assignStudentToCourse(sara, uml);
         martial.assignStudentToCourse(lea, uml);
         martial.assignStudentToCourse(sophia, uml);
 
-        // cours bdd
+        // assignation d'élèves au cours uml
         martial.addCourse(bdd);
         martial.assignStudentToCourse(lucas, bdd);
         martial.assignStudentToCourse(sara, bdd);
+        martial.assignStudentToCourse(theo, bdd);
 
+        //affichage de cours
         martial.displayCourses();
 
+        //-----------------------------------------------------------------------------------------------
         // test 2 personnes 1 adresse
         System.out.println("-------DisplayAdresses-------");
         System.out.println(theoHome.getInhabitants());
 
+        //-----------------------------------------------------------------------------------------------
         // test d'affichage cour d'un prof
         System.out.println("----Display Mor courses-------");
         mor.displayCourses();
-        
-        //test pour enlever un eleve d'un cours
+
+        //-----------------------------------------------------------------------------------------------
+        //test pour enlever un élève d'un cours
         System.out.println("==========Remove student from course==========");
         System.out.println("-------BEFORE REMOVAL-------");
         theo.printCourses();
@@ -170,8 +184,9 @@ public class Main {
         for (Student s : bdd.getStudents()) {
             System.out.println(s.getFirstName());
         }
-        
-        //test pour virer un etudiant
+
+        //-----------------------------------------------------------------------------------------------
+        //test pour virer un élève de l'établissement
         System.out.println("==========Remove student from school==========");
         
         System.out.println("-------BEFORE REMOVAL-------");
