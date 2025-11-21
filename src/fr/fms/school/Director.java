@@ -3,25 +3,23 @@ package fr.fms.school;
 import java.util.ArrayList;
 import java.util.List;
 
+// La classe Director qui hérite de Person
 public class Director extends Person {
-    private List<Course> courses;
-    private List<Teacher> teachers;
-    private List<Student> students;
-    private List<Address> addresses;
+    private final List<Course> courses;
+    private final List<Teacher> teachers;
+    private final List<Student> students;
+    protected static List<Student> waitingToBeSubscribedStudents = new ArrayList<>();
 
-    //static
-    public static List<Student> waitingToBeSubscribedStudents = new ArrayList<>();
-
-
+    // ==========Constructeur===========
     public Director(String firstName, String lastName, int age, Address address) {
         super(firstName, lastName, age, address);
         this.courses = new ArrayList<>();
         this.teachers = new ArrayList<>();
         this.students = new ArrayList<>();
-        this.addresses = new ArrayList<>();
+        List<Address> addresses = new ArrayList<>();
     }
-    /// Pour la gestion des cours
-    //ajouter
+    /// ------------->Pour la gestion des cours
+    // ajouter un cours
     public void addCourse(Course course) {
         courses.add(course);
     }
@@ -29,19 +27,18 @@ public class Director extends Person {
     public void removeCourse(Course course) {
         courses.remove(course);
     }
-    //afficher
+
     public List<Course> getCourses() {
         return courses;
     }
-
+    // Afficher les cours
     public void displayCourses(){
         for (Course course : courses) {
             System.out.println(course);
         }
     }
 
-
-    // pour les élèves
+    // -------------->Pour les élèves
     public void validateStudentRegistration(Student student) {
         if (!students.contains(student)) {
             students.add(student);
@@ -56,6 +53,7 @@ public class Director extends Person {
         return students;
     }
 
+    // gestion des demandes d'inscriptions
     public static List<Student> getWaitingToBeSubscribedStudents() {
         return waitingToBeSubscribedStudents;
     }
@@ -72,7 +70,7 @@ public class Director extends Person {
         waitingToBeSubscribedStudents.clear();
     }
 
-    // gestion des profs
+    // ------------>Gestion des profs
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
     }
@@ -91,28 +89,27 @@ public class Director extends Person {
         return teachers;
     }
 
-    // affecter un prof
+    // affecter un prof à un cours
     public void assignCourseToTeacher(Course course, Teacher teacher) {
-        //teacher.getCourses().add(course);
         teacher.addCourse(course);
     }
 
-    //assigner eun élève
+    //assigner un élève à un cours
     public void assignStudentToCourse(Student student, Course course) {
         course.addStudent(student);
     }
 
+    //Afficher la liste des élèves
     public void displayStudents(){
         for(Student s : students) {
             System.out.println(s);
         }
     }
 
+    // Affichage basique du directeur
     @Override
     public String toString() {
-        return "Director{" +
-                "name=" + getFirstName() + " " + getLastName() + "}";
+        return "Directeur: " + getFirstName() + " " + getLastName() ;
     }
-
 
 }
