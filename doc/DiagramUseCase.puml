@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+:Teacher : as Teacher
+:Student : as Student
+:Director : as Director
+
+package System{
+
+:Director: --> (gérer les enseignants)
+:Director: --> (gérer les élèves)
+:Director: --> (gérer les cours)
+
+(gérer les enseignants) <-- (gérer les adresses) : <<extend>>
+(gérer les élèves) <-- (gérer les adresses) : <<extend>>
+
+:Teacher: --> (consulter les cours)
+:Teacher: --> (consulter les élèves)
+
+:Student: --> (consulter les cours)
+
+}
+@enduml

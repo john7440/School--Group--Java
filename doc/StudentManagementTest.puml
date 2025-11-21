@@ -1,0 +1,83 @@
+@startuml
+actor Eleve
+participant "Système d'inscription" as SI
+participant "Adresse"
+actor "Directeur"
+participant "Cours"
+
+activate Eleve
+activate SI
+Eleve -> SI : saisir données personnelles
+SI -> SI : création automatique d'un identifiant unique
+SI --> Eleve: demande de saisie prénom
+Eleve -> SI : saisir prénom
+alt Prénom valide et Nom valide
+    SI --> Eleve : demande de saisie nom
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+SI -> SI : valider prénom
+Eleve -> SI : saisir nom
+alt Nom valide
+    SI --> Eleve : demande de saisie age
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+SI -> SI : valider nom
+Eleve -> SI : saisir age
+alt Age valide
+    SI --> Eleve : demande de saisie adresse
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+SI -> SI : valider age
+activate Adresse
+SI --> Eleve : demande saisie rue
+Eleve -> Adresse : saisir rue
+alt Rue valide
+    Adresse --> Eleve : demande de saisie ville
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+Adresse -> Adresse : valider format rue
+SI --> Eleve : demande saisie ville
+Eleve -> Adresse : saisir ville
+alt Ville valide
+    Adresse --> Eleve : demande de saisie Code postal
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+Adresse -> Adresse : valider format ville
+SI --> Eleve : demande saisie Code postal
+Eleve -> Adresse : saisir Code postal
+
+alt Code postal valide
+    Adresse --> SI : résultat validation adresse
+else
+    SI --> Eleve : message d'erreur, nouvel essai
+end
+
+Adresse -> Adresse : valider format code postal
+
+
+activate Directeur
+    SI -> Directeur : demande d'autorisation
+    Deactivate Adresse
+    Directeur --> SI : autorisé / refusé
+    alt Autorisé
+        SI -> SI : ajouter élève et adresse
+        SI --> Eleve : confirmation d'inscription
+    else Refusé
+        SI --> Eleve : inscription refusée
+    end
+
+
+Directeur -> Cours : assignation de l'élève a des cours
+
+
+@enduml

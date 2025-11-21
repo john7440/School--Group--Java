@@ -1,0 +1,28 @@
+@startuml
+actor Directeur
+actor Enseignant
+participant "Système Cours" as SC
+
+
+activate Directeur
+Directeur -> SC: Saisir infos cours
+activate SC
+SC -> SC : Vérifier la saisie
+SC --> SC: Résultat validation
+
+activate Enseignant
+SC -> Enseignant : Vérifier disponibilité professeur
+Enseignant --> SC : Résultat disponibilité
+
+alt Professeur disponible
+    SC -> Enseignant : Notification nouveau cours
+    SC -> SC : Ajouter cours au planning
+    deactivate Enseignant
+    SC --> Directeur : Confirmation création
+
+else
+    SC --> Directeur : Message erreur (prof indisponible)
+end
+Deactivate SC
+
+@enduml
