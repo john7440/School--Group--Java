@@ -22,17 +22,16 @@ public class Student extends Person {
         this.id = id;
     }
 
-    //apply to a school, send my profile to the director
+    //Demande d'inscription (que le directeur doit valider)
     public void applyToSchool(){
         Director.getWaitingToBeSubscribedStudents().add(this);
     }
 
-
+    //Affichage basique de l'élève
     @Override
     public String toString() {
-        return "\nStudent{" +
-                ", id=" + id +
+        return "\nStudent n°"+ id +
                 super.toString() +
-                '}';
+                '\n';
     }
 }
