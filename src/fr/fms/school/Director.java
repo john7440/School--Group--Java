@@ -92,7 +92,14 @@ public class Director extends Person {
     	student.getAssignedCourses().removeIf(courseFromList -> courseFromList.equals(course));
     }
     
-    public void removeStudent(Student student) {}
+    public void removeStudent(Student student) {
+    	//remove student from courses before delete student
+    	for(Course course : this.courses) {
+    		this.removeStudentFromCourse(student, course);
+    	}
+    	//delete student
+    	this.students.removeIf(stdntFromList -> stdntFromList.equals(student));
+    }
 
     //Afficher la liste des élèves
     public void displayStudents(){
