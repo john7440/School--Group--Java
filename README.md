@@ -1,4 +1,4 @@
-# 📚 Application de Gestion Scolaire
+# 📚 Application de Gestion Scolaire en Java
 
 Cette application est le fruit d'une collaboration avec Rafael Da Silva, Rémi Campistron, Rafaël Ducasse et Théo Sarhane. Elle permet de gérer les enseignants et les cours au sein d’un établissement scolaire.  
 Elle propose des fonctionnalités adaptées à trois profils : **Directeur**, **Élève**, et **Enseignant**.
@@ -52,4 +52,4 @@ Elle propose des fonctionnalités adaptées à trois profils : **Directeur**, **
 
 1. Clonez le projet :  
    ```bash
-   git clone [https://github.com/mon-organisation/gestion-scolaire.git](https://github.com/john7440/School--Group--Java.git)
+   git clone https://github.com/mon-organisation/gestion-scolaire.git
